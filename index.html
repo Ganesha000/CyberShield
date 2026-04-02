@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberShield - Smart Cybersecurity Checklist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="background-grid"></div>
+      <div class="aurora aurora-green"></div>
+      <div class="aurora aurora-blue"></div>
+      <div class="scan-line"></div>
+
+      <aside class="sidebar glass-panel">
+        <div class="brand">
+          <div class="brand-mark">CS</div>
+          <div class="brand-copy">
+            <span>CyberShield</span>
+            <small>Smart Checklist</small>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <button class="nav-link active" data-section="landing">Overview</button>
+          <button class="nav-link" data-section="auth">Auth</button>
+          <button class="nav-link" data-section="checklist">Checklist</button>
+          <button class="nav-link" data-section="dashboard">Dashboard</button>
+        </nav>
+        <div class="sidebar-status">
+          <p class="eyebrow">Status</p>
+          <div class="status-card">
+            <strong>Shield Core Online</strong>
+            <span>AI scanning and posture analytics ready</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar glass-panel">
+          <div>
+            <p class="eyebrow">Premium AI Cyber Defense Console</p>
+            <h1>CyberShield</h1>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <input type="text" placeholder="Search insights, threats, controls..." />
+            </label>
+            <button id="themeToggle" class="ghost-button">Light Mode</button>
+            <button id="logoutBtn" class="ghost-button hidden">Logout</button>
+            <div class="avatar" id="profileChip">Guest</div>
+          </div>
+        </header>
+
+        <section id="landing" class="panel active-view">
+          <div class="hero glass-panel">
+            <div class="hero-copy">
+              <span class="hero-tag">Check Your Cyber Safety in Seconds</span>
+              <h2>AI-powered cybersecurity scoring for students who want real protection, not generic checklists.</h2>
+              <p>
+                Scan your habits, model attacker outcomes, and receive personalized recommendations through a cinematic control-panel experience.
+              </p>
+              <div class="hero-actions">
+                <button id="startScanBtn" class="primary-button">Start Scan</button>
+                <button class="ghost-button" data-section-target="auth">Create Account</button>
+              </div>
+              <div class="hero-proof">
+                <span>AI analysis</span>
+                <span>Threat simulation</span>
+                <span>Score tracking</span>
+              </div>
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <strong>0-100</strong>
+                  <span>Security scoring engine</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>Live</strong>
+                  <span>Risk insights and scenario modeling</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>PDF</strong>
+                  <span>Downloadable cybersecurity report</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-orbit hero-orbit-a"></div>
+              <div class="hero-orbit hero-orbit-b"></div>
+              <div class="radar-ring ring-1"></div>
+              <div class="radar-ring ring-2"></div>
+              <div class="radar-ring ring-3"></div>
+              <div class="shield-core">
+                <div class="shield-inner">SAFE</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card glass-panel">
+              <h3>AI Analysis</h3>
+              <p>OpenRouter-generated suggestions convert habits into practical security actions.</p>
+            </article>
+            <article class="feature-card glass-panel">
+              <h3>Live Risk Scoring</h3>
+              <p>Weighted controls map your behavior to a 0-100 cybersecurity posture score.</p>
+            </article>
+            <article class="feature-card glass-panel">
+              <h3>What If Attacker</h3>
+              <p>Behavioral simulation explains what attackers would do with your weak points.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="auth" class="panel">
+          <div class="auth-grid">
+            <div class="glass-panel auth-copy">
+              <p class="eyebrow">Secure Access</p>
+              <h2>Sign in to unlock your personal cyber control room</h2>
+              <p>
+                Save scan history, download PDF reports, and grow from "Cyber Safe Beginner" to "Security Pro".
+              </p>
+            </div>
+            <div class="glass-panel auth-card">
+              <div class="auth-tabs">
+                <button class="auth-tab active" data-auth-mode="login">Login</button>
+                <button class="auth-tab" data-auth-mode="signup">Sign Up</button>
+              </div>
+              <form id="authForm">
+                <div class="form-row" id="nameRow">
+                  <label for="name">Full Name</label>
+                  <input id="name" name="name" type="text" placeholder="Ava Sentinel" />
+                </div>
+                <div class="form-row">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="student@campus.edu" required />
+                </div>
+                <div class="form-row">
+                  <label for="password">Password</label>
+                  <input id="password" name="password" type="password" placeholder="Create a strong passphrase" required />
+                </div>
+                <button class="primary-button auth-submit" type="submit">Access CyberShield</button>
+                <p id="authMessage" class="status-text"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="checklist" class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Smart Checklist</p>
+              <h2>Tell CyberShield how you actually behave online</h2>
+            </div>
+            <div class="glass-pill">Scanning your system...</div>
+          </div>
+
+          <form id="checklistForm" class="checklist-grid">
+            <article class="question-card glass-panel">
+              <h3>MFA Usage</h3>
+              <p>How consistently do you use multi-factor authentication?</p>
+              <div class="choice-group">
+                <label><input type="radio" name="mfa" value="always" checked /> Always</label>
+                <label><input type="radio" name="mfa" value="most" /> Most accounts</label>
+                <label><input type="radio" name="mfa" value="sometimes" /> Sometimes</label>
+                <label><input type="radio" name="mfa" value="never" /> Never</label>
+              </div>
+            </article>
+
+            <article class="question-card glass-panel">
+              <h3>Password Habits</h3>
+              <p>Which option best matches your password behavior?</p>
+              <div class="choice-group">
+                <label><input type="radio" name="passwords" value="password-manager" checked /> Password manager</label>
+                <label><input type="radio" name="passwords" value="unique-passphrases" /> Unique passphrases</label>
+                <label><input type="radio" name="passwords" value="reuse-some" /> Reuse some passwords</label>
+                <label><input type="radio" name="passwords" value="weak-short" /> Short or easy passwords</label>
+              </div>
+            </article>
+
+            <article class="question-card glass-panel">
+              <h3>Software Updates</h3>
+              <p>How quickly do you patch your devices and apps?</p>
+              <div class="choice-group">
+                <label><input type="radio" name="updates" value="auto" checked /> Auto-updates enabled</label>
+                <label><input type="radio" name="updates" value="weekly" /> Weekly manual checks</label>
+                <label><input type="radio" name="updates" value="monthly" /> Monthly or irregular</label>
+                <label><input type="radio" name="updates" value="rarely" /> Rarely update</label>
+              </div>
+            </article>
+
+            <article class="question-card glass-panel">
+              <h3>Public Wi-Fi Usage</h3>
+              <p>How do you handle public hotspots?</p>
+              <div class="choice-group">
+                <label><input type="radio" name="publicWifi" value="vpn" checked /> Use VPN or hotspot</label>
+                <label><input type="radio" name="publicWifi" value="rarely" /> Rarely connect</label>
+                <label><input type="radio" name="publicWifi" value="often" /> Often connect directly</label>
+                <label><input type="radio" name="publicWifi" value="sensitive" /> Use it for sensitive logins</label>
+              </div>
+            </article>
+
+            <article class="question-card glass-panel">
+              <h3>Phishing Awareness</h3>
+              <p>How confident are you at spotting phishing attempts?</p>
+              <div class="choice-group">
+                <label><input type="radio" name="phishing" value="trained" checked /> Trained and alert</label>
+                <label><input type="radio" name="phishing" value="confident" /> Usually confident</label>
+                <label><input type="radio" name="phishing" value="uncertain" /> Sometimes unsure</label>
+                <label><input type="radio" name="phishing" value="clicked-before" /> I have clicked before</label>
+              </div>
+            </article>
+
+            <article class="question-card glass-panel project-card">
+              <p class="eyebrow">Interview Edge</p>
+              <h3>Why this project matters</h3>
+              <p>
+                This project not only evaluates user security posture but also educates users through behavioral simulation, bridging the gap between awareness and action.
+              </p>
+              <button class="primary-button" type="submit" id="analyzeBtn">Run AI Security Scan</button>
+              <p id="scanMessage" class="status-text"></p>
+            </article>
+          </form>
+        </section>
+
+        <section id="dashboard" class="panel">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Control Center</p>
+              <h2>Your cybersecurity posture dashboard</h2>
+            </div>
+            <div class="dashboard-actions">
+              <button id="exportPdfBtn" class="ghost-button">Download PDF</button>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="glass-panel score-panel">
+              <div class="score-ring">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="48"></circle>
+                  <circle id="scoreStroke" cx="60" cy="60" r="48"></circle>
+                </svg>
+                <div class="score-center">
+                  <strong id="scoreValue">0</strong>
+                  <span>Security Score</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass-panel risk-panel">
+              <p class="eyebrow">Risk Status</p>
+              <div id="riskBadge" class="risk-badge risk-medium">Medium Risk</div>
+              <p id="riskExplanation">
+                Complete a scan to see how your habits translate into real attack exposure.
+              </p>
+              <div id="badgeTray" class="badge-tray"></div>
+            </article>
+
+            <article class="glass-panel chart-panel">
+              <div class="panel-heading">
+                <h3>Vulnerability Distribution</h3>
+              </div>
+              <canvas id="vulnerabilityChart"></canvas>
+            </article>
+
+            <article class="glass-panel chart-panel">
+              <div class="panel-heading">
+                <h3>Security Strength Areas</h3>
+              </div>
+              <canvas id="strengthChart"></canvas>
+            </article>
+
+            <article class="glass-panel insight-panel">
+              <div class="panel-heading">
+                <h3>Weak Points</h3>
+              </div>
+              <div id="weakPoints" class="stack-list"></div>
+            </article>
+
+            <article class="glass-panel insight-panel">
+              <div class="panel-heading">
+                <h3>AI Recommendations</h3>
+              </div>
+              <div id="recommendations" class="stack-list"></div>
+            </article>
+
+            <article class="glass-panel insight-panel">
+              <div class="panel-heading">
+                <h3>Security Tips</h3>
+              </div>
+              <div id="securityTips" class="stack-list"></div>
+            </article>
+
+            <article class="glass-panel simulation-panel">
+              <div class="panel-heading">
+                <h3>What If Attacker</h3>
+              </div>
+              <div id="simulationGrid" class="simulation-grid"></div>
+            </article>
+
+            <article class="glass-panel history-panel">
+              <div class="panel-heading">
+                <h3>Recent Scans</h3>
+              </div>
+              <div id="historyList" class="history-list"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
